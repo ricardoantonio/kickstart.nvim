@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -153,6 +153,10 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Spell configuration
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us', 'es_mx', 'es_es' }
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -734,15 +738,8 @@ require('lazy').setup({
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
     --
-<<<<<<< HEAD
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
     'catppuccin/nvim',
-    priority = 1000, -- make sure to load this before all the other start plugins
-=======
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
->>>>>>> nvim-lua-master
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
