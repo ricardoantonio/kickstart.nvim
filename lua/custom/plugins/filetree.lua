@@ -7,6 +7,24 @@ return {
     'MunifTanjim/nui.nvim',
   },
   config = function()
-    require('neo-tree').setup {}
+    require('neo-tree').setup {
+      close_if_last_window = true,
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
+      },
+      event_handlers = {
+        {
+          event = 'file_opened',
+          handler = function(file_path)
+            require('neo-tree.command').execute { action = 'close' }
+          end,
+        },
+      },
+    }
   end,
+  vim.keymap.set('n', '<leader>nt', '<Cmd>Neotree toggle<CR>', { desc = 'Open [N]eo[t]ree' }),
 }
